@@ -10,17 +10,18 @@ export class AppComponent implements OnInit {
 
   cidades = [];
 
-  constructor(private cidadeService: CidadeService) {}
+  constructor(private cidadeService: CidadeService) { }
 
   ngOnInit() {
-    this.cidadeService.consultar()
-      .then(dados => {
-        this.cidades = dados;
-      });
+   this.consultar();
   }
 
   adicionar(nome: string) {
-    alert(nome);
+    this.cidadeService.adicionar({ nome })
+      .then(cidade => {
+        alert(`Cidade "${cidade.nome}" adicionada com o codigo ${cidade.id}`);
+        this.consultar();
+      });
   }
 
   excluir(id: number) {
@@ -29,6 +30,13 @@ export class AppComponent implements OnInit {
 
   atualizar(cidade: any) {
     alert(JSON.stringify(cidade));
+  }
+
+  consultar() {
+    this.cidadeService.consultar()
+    .then(dados => {
+      this.cidades = dados;
+    });
   }
 
 }
