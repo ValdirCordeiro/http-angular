@@ -25,7 +25,11 @@ export class AppComponent implements OnInit {
   }
 
   excluir(id: number) {
-    alert(id);
+    this.cidadeService.excluir(id)
+      .then( () => {
+        alert('Cidade excluida com sucesso!');
+        this.consultar();
+      });
   }
 
   atualizar(cidade: any) {
