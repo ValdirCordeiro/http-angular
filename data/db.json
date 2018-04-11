@@ -1,16 +1,17 @@
 {
   "cidades": [
     {
+      "nome": "Belo Horizonte",
+      "id": 1
+    },
+    {
       "nome": "São Paulo",
       "id": 2
     },
     {
       "nome": "Fortaleza",
       "id": 3
-    },
-    {
-      "nome": "Belo Horizonte",
-      "id": 4
     }
+
   ]
 }
